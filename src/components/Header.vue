@@ -14,7 +14,7 @@
                         EYEGLASSES
                     </li>
                     <li class="design">
-                        <FontAwesomeIcon icon="faPalette" />
+                        <font-awesome-icon icon="palette" />
                         <span>DESIGN YOUR OWN</span>
                     </li>
                     <li>PRESCRIPTION</li>
