@@ -9,15 +9,18 @@
   </ais-instant-search> -->
   <div>
   <Header/>
+  <HomePage/>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue"
+import HomePage from "@/components/HomePage"
 
 export default {
   components: {
-    Header
+    Header,
+    HomePage
   },
   data() {
     return{}
