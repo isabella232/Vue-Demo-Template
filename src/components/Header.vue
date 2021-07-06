@@ -34,7 +34,9 @@
             fill="#030A2B"
           />
         </svg>
-        <p class="search-placeholder">Search ...</p>
+        <p class="search-placeholder">
+          Search ...
+        </p>
       </div>
     </div>
   </header>
@@ -79,9 +81,11 @@ export default {
       this.showFederatedSearch = false;
     },
     svgClick() {
-      this.showFederatedSearch(!this.showFederatedSearch);
+      console.log("COUCOU")
+      this.showFederatedSearch = !this.showFederatedSearch;
       this.catTwo = false;
       this.catOne = false;
+      this.$emit('showFederatedSearch', this.showFederatedSearch)
     },
   },
 };
@@ -89,7 +93,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables/variables.scss";
-
 
 .headerUp {
   width: 100%;

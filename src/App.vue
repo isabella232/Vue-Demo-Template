@@ -8,26 +8,34 @@
     </ais-hits>
   </ais-instant-search> -->
   <div>
-  <Header/>
-  <HomePage/>
+    <Header @showFederatedSearch="showFederatedSearchMethod"/>
+    <HomePage
+      v-if="showFederatedSearch"
+    />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue"
-import HomePage from "@/components/HomePage"
+import Header from "./components/Header.vue";
+import HomePage from "@/components/HomePage";
 
 export default {
   components: {
     Header,
-    HomePage
+    HomePage,
   },
   data() {
-    return{}
+    return {
+      showFederatedSearch: true,
+    };
+  },
+  methods: {
+    showFederatedSearchMethod(value) {
+      console.log('VALUe', value)
+      this.showFederatedSearch = value;
+    },
   },
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
