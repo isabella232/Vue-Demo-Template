@@ -1,4 +1,4 @@
-# luxotica-template-vue
+# A vue Template for Demo Engineers
 
 ## Project setup
 ```
