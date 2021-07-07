@@ -2,12 +2,12 @@
   <header class="header">
     <img :src="headerUp" alt="" class="headerUp" />
     <div class="header-wrapper">
-      <img :src="logo" alt="logo" class="logo" @click="logoFunction()" />
+      <img :src="logo" alt="logo" class="logo" @click="logoFunction" />
       <ul>
         <li @click="catOneFunction()">
           CAT ONE
         </li>
-        <li @click="catTwoFunction()">
+        <li @click="catTwoFunction">
           CAT TWO
         </li>
         <li class="design">
@@ -46,6 +46,8 @@
 // Import the assets
 import headerUp from "../assets/images/headerUp.png";
 import logo from "../assets/images/logo.jpeg";
+import { mapActions } from "vuex";
+
 // Import the components
 import SelectPersona from "./Persona";
 export default {
@@ -63,30 +65,7 @@ export default {
     };
   },
   methods: {
-    logoFunction() {
-      this.catOne = false;
-      this.searchVisible = false;
-      this.catTwo = false;
-    },
-    catOneFunction() {
-      this.catOne = true;
-      this.searchVisible = false;
-      this.catTwo = false;
-      this.showFederatedSearch = false;
-    },
-    catTwoFunction() {
-      this.catOne = false;
-      this.searchVisible = false;
-      this.catTwo = true;
-      this.showFederatedSearch = false;
-    },
-    svgClick() {
-      console.log("COUCOU")
-      this.showFederatedSearch = !this.showFederatedSearch;
-      this.catTwo = false;
-      this.catOne = false;
-      this.$emit('showFederatedSearch', this.showFederatedSearch)
-    },
+    ...mapActions('HeaderModule', ['logoFunction','catTwoFunction','svgClick']),
   },
 };
 </script>

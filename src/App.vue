@@ -8,16 +8,15 @@
     </ais-hits>
   </ais-instant-search> -->
   <div>
-    <Header @showFederatedSearch="showFederatedSearchMethod"/>
-    <HomePage
-      v-if="showFederatedSearch"
-    />
+    <Header @showFederatedSearch="showFederatedSearchMethod" />
+    <HomePage v-if="!getShowFederatedSearch" />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import HomePage from "@/components/HomePage";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -31,9 +30,12 @@ export default {
   },
   methods: {
     showFederatedSearchMethod(value) {
-      console.log('VALUe', value)
+      console.log("VALUe", value);
       this.showFederatedSearch = value;
     },
+  },
+  computed: {
+    ...mapGetters("HeaderModule", ["getShowFederatedSearch"]),
   },
 };
 </script>
