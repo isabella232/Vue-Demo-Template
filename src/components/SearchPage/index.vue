@@ -1,26 +1,37 @@
-<template
-  ><ais-hits>
-    <!-- <div slot="item" slot-scope="{ item, index }">
+<template>
+  <div>
+    <SearchBox />
+    <ais-hits>
+      <!-- <div slot="item" slot-scope="{ item, index }">
       {{ index }} - {{ item }}
     </div> -->
-    <div class="hits-wrapper" slot="item" slot-scope="{ item }">
-      <div class="sort-and-stat">
-        <ul class="hits-list">
-          <li class="hit-list">
-            <div class="image-wrapper">
-              <img :src="item.image_link" alt="" />
-              <div class="infos">
-                <!-- <h3><Highlight hit="{hit}" attribute="title" /></h3> -->
-                <p>{{ item.title }}</p>
+      <div class="hits-wrapper" slot="item" slot-scope="{ item }">
+        <div class="sort-and-stat">
+          <ul class="hits-list">
+            <li class="hit-list">
+              <div class="image-wrapper">
+                <img :src="item.image_link" alt="" />
+                <div class="infos">
+                  <!-- <h3><Highlight hit="{hit}" attribute="title" /></h3> -->
+                  <p>{{ item.title }}</p>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </ais-hits></template
->
-<script></script>
+    </ais-hits>
+  </div>
+</template>
+<script>
+import SearchBox from "@/components/SearchBox"
+export default {
+  name: "SearchPage",
+  components: {
+    SearchBox
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/variables/variables.scss";
@@ -65,28 +76,28 @@
 //SEARCHRESULT
 
 .hits-list {
-    @include hits-list;
+  @include hits-list;
 
-    .hit-list {
-        @include hit-list;
-    }
+  .hit-list {
+    @include hit-list;
+  }
 }
 
 .searchPanel-results {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin: 3rem auto;
+  position: relative;
+
+  .filters-wrapper {
+    width: 20%;
+    will-change: width;
+  }
+
+  .hits-wrapper {
     width: 100%;
-    margin: 3rem auto;
-    position: relative;
-
-    .filters-wrapper {
-        width: 20%;
-        will-change: width;
-    }
-
-    .hits-wrapper {
-        width: 100%;
-    }
+  }
 }
 </style>
