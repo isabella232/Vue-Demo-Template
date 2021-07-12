@@ -3,18 +3,11 @@
     <SearchBox />
     <ais-hits>
       <div class="hits-wrapper" slot="item" slot-scope="{ item }">
-        <div class="sort-and-stat">
-          <ul class="hits-list">
-            <li class="hit-list">
-              <div class="image-wrapper">
-                <img :src="item.image_link" alt="" />
-                <div class="infos">
-                  <ais-highlight attribute="title" :hit="item" />
-                  <p>{{ item.title }}</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+        <div class="image-wrapper">
+          <img :src="item.image_link" alt="" />
+        </div>
+        <div class="infos">
+          <ais-highlight attribute="title" :hit="item" />
         </div>
       </div>
     </ais-hits>
@@ -72,14 +65,22 @@ export default {
 
 //SEARCHRESULT
 .ais-Hits {
-  width: 100%
+  width: 90%;
+  margin: 0 auto;
 }
 .ais-Hits-list {
+  width: 80% !important;
+  margin: 0 auto;
   @include hits-list;
 
   /* .ais-Hits-list {
     @include hit-list;
   } */
+}
+
+.ais-Hits-item{
+  width: 95% !important;
+  @include hit-list;
 }
 
 .searchPanel-results {
