@@ -2,9 +2,6 @@
   <div>
     <SearchBox />
     <ais-hits>
-      <!-- <div slot="item" slot-scope="{ item, index }">
-      {{ index }} - {{ item }}
-    </div> -->
       <div class="hits-wrapper" slot="item" slot-scope="{ item }">
         <div class="sort-and-stat">
           <ul class="hits-list">
@@ -12,7 +9,7 @@
               <div class="image-wrapper">
                 <img :src="item.image_link" alt="" />
                 <div class="infos">
-                  <!-- <h3><Highlight hit="{hit}" attribute="title" /></h3> -->
+                  <ais-highlight attribute="title" :hit="item" />
                   <p>{{ item.title }}</p>
                 </div>
               </div>
@@ -24,12 +21,12 @@
   </div>
 </template>
 <script>
-import SearchBox from "@/components/SearchBox"
+import SearchBox from "@/components/SearchBox";
 export default {
   name: "SearchPage",
   components: {
-    SearchBox
-  }
+    SearchBox,
+  },
 };
 </script>
 
