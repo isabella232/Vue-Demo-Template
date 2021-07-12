@@ -7,7 +7,7 @@
         <li @click="catOneFunction()">
           CAT ONE
         </li>
-        <li @click="catTwoFunction">
+        <li @click="catTwoFunction()">
           CAT TWO
         </li>
         <li class="design">

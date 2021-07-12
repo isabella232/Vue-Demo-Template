@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
 @import "@/assets/scss/mixin.scss";
 .searchPanel-results {
@@ -71,13 +71,15 @@ export default {
 }
 
 //SEARCHRESULT
-
-.hits-list {
+.ais-Hits {
+  width: 100%
+}
+.ais-Hits-list {
   @include hits-list;
 
-  .hit-list {
+  /* .ais-Hits-list {
     @include hit-list;
-  }
+  } */
 }
 
 .searchPanel-results {

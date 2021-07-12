@@ -69,7 +69,6 @@ export default {
     height: 20px;
     cursor: pointer;
     border: none;
-
   }
   .ais-VoiceSearch-status {
     display: none !important;
