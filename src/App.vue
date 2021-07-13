@@ -6,7 +6,7 @@
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getShowFederatedSearch" />
-      <SearchPage v-else />
+      <Modal v-else />
     </ais-instant-search>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script>
 import Header from "./components/Header.vue";
 import HomePage from "@/components/HomePage";
-import SearchPage from "@/components/SearchPage";
+import Modal from "@/components/Modal";
 import { mapGetters } from "vuex";
 import algoliasearch from "algoliasearch/lite";
 
@@ -22,7 +22,7 @@ export default {
   components: {
     Header,
     HomePage,
-    SearchPage,
+    Modal,
   },
   data() {
     return {
