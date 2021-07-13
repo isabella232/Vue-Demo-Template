@@ -5,6 +5,7 @@
         <Suggestion />
         <SearchPage />
       </div>
+      <ais-pagination />
     </div>
   </div>
 </template>
@@ -21,14 +22,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.container-federated-search{
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    transform: translate(0%, 15%);
-    width: 100%;
+<style lang="scss">
+@import "@/assets/scss/variables/variables.scss";
+.container-federated-search {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  transform: translate(0%, 15%);
+  width: 100%;
   .federated-search {
     width: 90vw;
     height: 80vh;
@@ -44,6 +46,20 @@ export default {
     .modal-content {
       display: flex;
       justify-content: center;
+    }
+  }
+}
+.ais-Pagination-list {
+  display: flex;
+  justify-content: center;
+  li {
+    margin: 0 0.2em;
+    background-color: $seventh-color;
+    border-radius: 8px;
+    padding: 8px;
+    a {
+      text-decoration: none;
+      color: white;
     }
   }
 }

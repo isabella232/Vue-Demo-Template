@@ -5,8 +5,9 @@
       index-name="rayban_merged"
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
-      <HomePage />
-      <Modal v-if="getShowModal"/>
+      <HomePage v-if="!getCatOne && !getCatTwo" />
+      <CatOne v-if="getCatOne"/>
+      <Modal v-if="getShowModal" />
     </ais-instant-search>
   </div>
 </template>
@@ -15,6 +16,7 @@
 import Header from "./components/Header.vue";
 import HomePage from "@/components/HomePage";
 import Modal from "@/components/Modal";
+import CatOne from "@/components/HitsPage";
 import { mapGetters } from "vuex";
 import algoliasearch from "algoliasearch/lite";
 
@@ -23,6 +25,7 @@ export default {
     Header,
     HomePage,
     Modal,
+    CatOne,
   },
   data() {
     return {
@@ -40,7 +43,12 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("HeaderModule", ["getShowFederatedSearch", "getShowModal"]),
+    ...mapGetters("HeaderModule", [
+      "getShowFederatedSearch",
+      "getShowModal",
+      "getCatTwo",
+      "getCatOne",
+    ]),
   },
 };
 </script>

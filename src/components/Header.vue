@@ -65,7 +65,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('HeaderModule', ['logoFunction','catTwoFunction','svgClick']),
+    ...mapActions('HeaderModule', ['logoFunction','catTwoFunction','svgClick', 'catOneFunction']),
   },
 };
 </script>
