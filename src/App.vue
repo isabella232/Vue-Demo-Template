@@ -5,8 +5,8 @@
       index-name="rayban_merged"
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
-      <HomePage v-if="!getShowFederatedSearch" />
-      <Modal v-else />
+      <HomePage />
+      <Modal v-if="getShowModal"/>
     </ais-instant-search>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("HeaderModule", ["getShowFederatedSearch"]),
+    ...mapGetters("HeaderModule", ["getShowFederatedSearch", "getShowModal"]),
   },
 };
 </script>

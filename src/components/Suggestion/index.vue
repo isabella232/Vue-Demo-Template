@@ -4,31 +4,38 @@
       <h1>Suggestion</h1>
     </div>
     <div class="content">
-      <ais-refinement-list attribute="title" searchable show-more>
-        <div
-          slot-scope="{
-            items,
-            isShowingMore,
-            isFromSearch,
-            canToggleShowMore,
-            refine,
-            createURL,
-          }"
-        >
-          <ul>
-            <li v-if="isFromSearch && !items.length">No results.</li>
-            <li v-for="item in items" :key="item.value">
-              <a
-                :href="createURL(getRandomInt(5))"
-                :style="{ fontWeight: getRandomInt(5).isRefined ? 'bold' : '' }"
-                @click.prevent="refine(getRandomInt(5).value)"
-              >
-                <ais-highlight attribute="item" :hit="item" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </ais-refinement-list>
+      <ais-index index-name="rayban_merged_query_suggestions">
+        <ais-refinement-list attribute="title" searchable show-more>
+          <div
+            slot-scope="{
+              items,
+              isShowingMore,
+              isFromSearch,
+              canToggleShowMore,
+              refine,
+              createURL,
+            }"
+          >
+            <ul>
+              <li v-if="isFromSearch && !items.length">No results.</li>
+              <li v-for="item in items" :key="item.value">
+                <a
+                  :href="createURL(item)"
+                  :style="{
+                    fontWeight: item.isRefined ? 'bold' : '',
+                  }"
+                  @click.prevent="refine(item.value)"
+                >
+                  <ais-highlight
+                    attribute="item"
+                    :hit="item"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </ais-refinement-list>
+      </ais-index>
     </div>
   </div>
 </template>

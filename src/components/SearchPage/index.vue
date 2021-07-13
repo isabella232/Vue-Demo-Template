@@ -1,6 +1,10 @@
 <template>
   <div>
     <SearchBox />
+    <h3 class="federated-title">Products</h3>
+    <div class="sort-and-stat">
+      <ais-stats />
+    </div>
     <ais-hits>
       <div class="hits-wrapper" slot="item" slot-scope="{ item }">
         <div class="image-wrapper">
@@ -78,7 +82,7 @@ export default {
   } */
 }
 
-.ais-Hits-item{
+.ais-Hits-item {
   width: 95% !important;
   @include hit-list;
 }
@@ -99,5 +103,10 @@ export default {
   .hits-wrapper {
     width: 100%;
   }
+}
+
+.federated-title {
+  margin-left: 3rem;
+  margin-bottom: 1rem;
 }
 </style>

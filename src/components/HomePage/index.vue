@@ -50,6 +50,8 @@ export default {
 
 <style lang="scss" scoped>
 .homepage-wrapper {
+  z-index: 0;
+  position: absolute;
   img,
   video {
     width: 100%;
