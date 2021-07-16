@@ -6,8 +6,15 @@
         slot-scope="{ currentRefinement, isSearchStalled, refine }"
       >
         <input
+          v-if="hits === ''"
           type="search"
           :value="currentRefinement"
+          @input="refine($event.currentTarget.value)"
+        />
+        <input
+          v-else
+          type="search"
+          :value="hits"
           @input="refine($event.currentTarget.value)"
         />
         <span :hidden="!isSearchStalled">Loading...</span>
@@ -20,6 +27,7 @@
 <script>
 export default {
   name: "SearchBox",
+  props: ["hits"],
 };
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <SearchBox />
+    <SearchBox :hits="hits"/>
     <h3 class="federated-title">Products</h3>
     <div class="sort-and-stat">
       <ais-stats />
     </div>
-    <ais-hits v-if="hits === ''">
+    <ais-hits>
       <div class="hits-wrapper" slot="item" slot-scope="{ item }">
         <div class="image-wrapper">
           <img :src="item.image_link" alt="" />
