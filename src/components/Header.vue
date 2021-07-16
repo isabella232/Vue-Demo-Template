@@ -4,7 +4,7 @@
     <div class="header-wrapper">
       <img :src="logo" alt="logo" class="logo" @click="logoFunction" />
       <ul>
-        <li @click="catOneFunction()">
+        <li @click="catOneFunction(), deletePersonna()">
           CAT ONE
         </li>
         <li @click="catTwoFunction()">
@@ -76,8 +76,8 @@ export default {
       "svgClick",
       "catOneFunction",
     ]),
+    ...mapActions("PersonnaModule", ["deletePersonna"]),
     selectedPersonna(value) {
-      console.log("EMIT", value);
       this.catOneFunction();
     },
   },

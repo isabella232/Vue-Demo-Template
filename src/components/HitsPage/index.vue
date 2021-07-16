@@ -67,7 +67,6 @@ export default {
       this.showFilter = !this.showFilter;
     },
     userToken() {
-      console.log(this.getPersonnaSelected);
       if (this.getPersonnaSelected == "Ben") {
         return "RB_Ben";
       }

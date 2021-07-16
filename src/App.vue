@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     showFederatedSearchMethod(value) {
-      console.log("VALUe", value);
       this.showFederatedSearch = value;
     },
   },

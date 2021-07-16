@@ -18,6 +18,9 @@ const PersonnaModule = {
     },
     selectedPersonna({commit}){
       commit('SELECTED_PERSONNA')
+    },
+    deletePersonna({commit}){
+      commit('DELETE_PERSONNA')
     }
   },
   mutations: {
@@ -26,6 +29,9 @@ const PersonnaModule = {
     },
     SELECTED_PERSONNA(state){
       state.selectedPersonna = true
+    },
+    DELETE_PERSONNA(state){
+      state.personnaSelected = ""
     }
   },
 };
