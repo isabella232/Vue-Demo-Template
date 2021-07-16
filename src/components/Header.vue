@@ -77,7 +77,7 @@ export default {
       "catOneFunction",
     ]),
     ...mapActions("PersonnaModule", ["deletePersonna"]),
-    selectedPersonna(value) {
+    selectedPersonna() {
       this.catOneFunction();
     },
   },
