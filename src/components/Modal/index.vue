@@ -2,8 +2,8 @@
   <div class="container-federated-search">
     <div class="federated-search">
       <div class="modal-content">
-        <Suggestion />
-        <SearchPage />
+        <Suggestion @suggestion="suggestionMethod" />
+        <SearchPage :hits="hits" />
       </div>
       <ais-pagination />
     </div>
@@ -18,6 +18,16 @@ export default {
   components: {
     SearchPage,
     Suggestion,
+  },
+  data() {
+    return {
+      hits: "",
+    };
+  },
+  methods: {
+    suggestionMethod(value) {
+      this.hits = value;
+    },
   },
 };
 </script>
