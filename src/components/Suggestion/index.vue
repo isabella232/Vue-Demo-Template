@@ -6,16 +6,7 @@
     <div class="content">
       <ais-index index-name="rayban_merged_query_suggestions">
         <ais-refinement-list attribute="title" searchable show-more>
-          <div
-            slot-scope="{
-              items,
-              isShowingMore,
-              isFromSearch,
-              canToggleShowMore,
-              refine,
-              createURL,
-            }"
-          >
+          <div slot-scope="{ items, isFromSearch, refine, createURL }">
             <ul>
               <li v-if="isFromSearch && !items.length">No results.</li>
               <li v-for="item in items" :key="item.value">
@@ -24,12 +15,9 @@
                   :style="{
                     fontWeight: item.isRefined ? 'bold' : '',
                   }"
-                  @click.prevent="refine(item.value)"
+                  @click.prevent="refine(item.value), emitMethod(items)"
                 >
-                  <ais-highlight
-                    attribute="item"
-                    :hit="item"
-                  />
+                  <ais-highlight attribute="item" :hit="item" />
                 </a>
               </li>
             </ul>
@@ -44,8 +32,8 @@
 export default {
   name: "Suggestion",
   methods: {
-    getRandomInt(max) {
-      return Math.floor(Math.random() * max);
+    emitMethod(value) {
+      this.$emit("suggestion", value);
     },
   },
 };

@@ -5,7 +5,7 @@
     <div class="sort-and-stat">
       <ais-stats />
     </div>
-    <ais-hits>
+    <ais-hits v-if="hits === ''">
       <div class="hits-wrapper" slot="item" slot-scope="{ item }">
         <div class="image-wrapper">
           <img :src="item.image_link" alt="" />
@@ -21,6 +21,7 @@
 import SearchBox from "@/components/SearchBox";
 export default {
   name: "SearchPage",
+  props: ["hits"],
   components: {
     SearchBox,
   },
