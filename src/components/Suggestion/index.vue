@@ -15,7 +15,7 @@
                   :style="{
                     fontWeight: item.isRefined ? 'bold' : '',
                   }"
-                  @click.prevent="refine(item.value), emitMethod(items)"
+                  @click.prevent="refine(item.value), emitMethod(item.value)"
                 >
                   <ais-highlight attribute="item" :hit="item" />
                 </a>

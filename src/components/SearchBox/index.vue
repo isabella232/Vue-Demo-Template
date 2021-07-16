@@ -5,7 +5,12 @@
         class="searchBox-wrapper"
         slot-scope="{ currentRefinement, isSearchStalled, refine }"
       >
-        <input
+        <input v-if="hits"
+          type="search"
+          :value="hits"
+          @input="refine($event.currentTarget.value)"
+        />
+        <input v-else
           type="search"
           :value="currentRefinement"
           @input="refine($event.currentTarget.value)"
@@ -20,6 +25,7 @@
 <script>
 export default {
   name: "SearchBox",
+  props: ["hits"],
 };
 </script>
 

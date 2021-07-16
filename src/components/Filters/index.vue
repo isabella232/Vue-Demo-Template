@@ -182,8 +182,8 @@
               +
               {{ range }}
               <vue-slider
-                :min="range.min"
-                :max="range.max"
+                :min=1
+                :max=100
                 :value="toValue(currentRefinement, range)"
                 @change="refine({ min: $event[0], max: $event[1] })"
               />
