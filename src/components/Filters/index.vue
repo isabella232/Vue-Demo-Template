@@ -1,14 +1,7 @@
 <template>
-  <div class="filters">
-    <div class="filterBtn" @click="showFiltersMethod()">
-      <p>Navigation & Filters</p>
+  <transition name="fade">
+    <div v-if="showFilter" class="filters">
       <div>
-        <p v-if="!showFilters">-</p>
-        <p v-else>+</p>
-      </div>
-    </div>
-    <transition name="fade">
-      <div v-if="!showFilters">
         <div class="filters-content">
           <div class="title" @click="showShapeMethod()">
             <h3>FRAME SHAPES</h3>
@@ -16,6 +9,7 @@
           </div>
           <transition name="fade">
             <ais-refinement-list
+              v-if="!showShapes"
               attribute="FrameShapeDescription"
               searchable
               show-more
@@ -185,10 +179,11 @@
           </div>
           <ais-range-input attribute="price">
             <div slot-scope="{ currentRefinement, range, refine }">
+              +
+              {{ range }}
               <vue-slider
-                :min="1"
-                :max="1000"
-                :lazy="true"
+                :min="range.min"
+                :max="range.max"
                 :value="toValue(currentRefinement, range)"
                 @change="refine({ min: $event[0], max: $event[1] })"
               />
@@ -197,8 +192,8 @@
           <div class="line"></div>
         </div>
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -209,6 +204,7 @@ export default {
   components: {
     VueSlider,
   },
+  props: ["showFilter"],
   data() {
     return {
       showColor: false,
@@ -225,9 +221,6 @@ export default {
     },
     showMaterialMethod() {
       this.showMaterial = !this.showMaterial;
-    },
-    showFiltersMethod() {
-      this.showFilters = !this.showFilters;
     },
     showShapeMethod() {
       this.showShapes = !this.showShapes;

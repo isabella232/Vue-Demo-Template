@@ -21,7 +21,7 @@
     "vue-instantsearch": "^3.7.0",
     "vue-js-modal": "^2.0.0-rc.6",
     "vue-select": "^3.11.2",
-    "vue-slider-component": "^4.0.0-beta.4",
+    "vue-slider-component": "^3.0.15",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

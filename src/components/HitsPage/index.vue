@@ -1,8 +1,15 @@
 <template>
   <div class="search-page">
     <SearchBox class="search" />
+    <div class="filterBtn" @click="showFiltersMethod()">
+      <p>Navigation & Filters</p>
+      <div>
+        <p v-if="!showFilters">-</p>
+        <p v-else>+</p>
+      </div>
+    </div>
     <div class="hits-page">
-      <Filters />
+      <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
@@ -44,9 +51,19 @@ import Filters from "@/components/Filters";
 import SearchBox from "@/components/SearchBox";
 export default {
   name: "catOne",
+  data() {
+    return {
+      showFilter: true,
+    };
+  },
   components: {
     Filters,
     SearchBox,
+  },
+  methods: {
+    showFiltersMethod() {
+      this.showFilter = !this.showFilter;
+    },
   },
 };
 </script>
@@ -56,7 +73,7 @@ export default {
 @import "@/assets/scss/mixin.scss";
 
 .search-page {
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   .hits-page {
     display: flex;
@@ -71,6 +88,16 @@ export default {
   .search {
     width: 80%;
     margin: 0 auto;
+  }
+  .filterBtn {
+    width: 10%;
+    margin: 0 0 0 5.4em;
+    display: -webkit-flex;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    justify-content: space-between;
   }
 }
 </style>
