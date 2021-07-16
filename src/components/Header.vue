@@ -17,7 +17,12 @@
         <li>PRESCRIPTION</li>
         <li>OUR ICONS</li>
         <li class="promo">PROMO</li>
-        <li><SelectPersona setSelectedOption="{setSelectedOption}" /></li>
+        <li>
+          <SelectPersona
+            @selectedPersonna="selectedPersonna"
+            setSelectedOption="{setSelectedOption}"
+          />
+        </li>
       </ul>
       <div class="search-wrapper" @click="svgClick()">
         <svg
@@ -65,7 +70,16 @@ export default {
     };
   },
   methods: {
-    ...mapActions('HeaderModule', ['logoFunction','catTwoFunction','svgClick', 'catOneFunction']),
+    ...mapActions("HeaderModule", [
+      "logoFunction",
+      "catTwoFunction",
+      "svgClick",
+      "catOneFunction",
+    ]),
+    selectedPersonna(value) {
+      console.log("EMIT", value);
+      this.catOneFunction();
+    },
   },
 };
 </script>

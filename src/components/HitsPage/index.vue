@@ -13,6 +13,7 @@
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
+          <ais-configure :userToken="userToken()" />
           <ais-sort-by
             :items="[
               {
@@ -49,6 +50,7 @@
 <script>
 import Filters from "@/components/Filters";
 import SearchBox from "@/components/SearchBox";
+import { mapGetters } from "vuex";
 export default {
   name: "catOne",
   data() {
@@ -64,6 +66,21 @@ export default {
     showFiltersMethod() {
       this.showFilter = !this.showFilter;
     },
+    userToken() {
+      console.log(this.getPersonnaSelected);
+      if (this.getPersonnaSelected == "Ben") {
+        return "RB_Ben";
+      }
+      if (this.getPersonnaSelected == "Tiffany") {
+        return "RB_Tiffany";
+      }
+      if (this.getPersonnaSelected == "Neutral") {
+        return "Neutral";
+      }
+    },
+  },
+  computed: {
+    ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
   },
 };
 </script>

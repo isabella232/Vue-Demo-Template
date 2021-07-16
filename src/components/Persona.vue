@@ -5,13 +5,14 @@
     :selected="object"
     v-on:updateOption="methodToRunOnSelect"
     :placeholder="'Select an Item'"
-    :closeOnOutsideClick="boolean"
+    :closeOnOutsideClick="true"
   >
   </dropdown>
 </template>
 
 <script>
 import dropdown from "vue-dropdowns";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -34,7 +35,11 @@ export default {
   methods: {
     methodToRunOnSelect(payload) {
       this.object = payload;
+      this.sendPersonnaSelected(payload.name)
+      this.selectedPersonna();
+      this.$emit("selectedPersonna", true)
     },
+    ...mapActions('PersonnaModule', ['sendPersonnaSelected', 'selectedPersonna']),
   },
 };
 </script>

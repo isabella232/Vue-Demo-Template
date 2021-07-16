@@ -243,7 +243,7 @@ export default {
 
 <style lang="scss" scoped>
 .filters {
-  width: 35%;
+  width: 70%;
   will-change: width;
   margin: 0 auto;
   .filterBtn {
