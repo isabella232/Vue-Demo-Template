@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchBox :hits="hits"/>
+    <!-- <SearchBox :hits="hits"/> -->
     <h3 class="federated-title">Products</h3>
     <div class="sort-and-stat">
       <ais-stats />
@@ -18,12 +18,12 @@
   </div>
 </template>
 <script>
-import SearchBox from "@/components/SearchBox";
+// import SearchBox from "@/components/SearchBox";
 export default {
   name: "SearchPage",
   props: ["hits"],
   components: {
-    SearchBox,
+    // SearchBox,
   },
 };
 </script>

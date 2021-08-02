@@ -6,17 +6,19 @@
         slot-scope="{ currentRefinement, isSearchStalled, refine }"
       >
         <input
-          v-if="hits === ''"
           type="search"
+          placeholder="Search..."
           :value="currentRefinement"
           @input="refine($event.currentTarget.value)"
+          @click="svgClick()"
         />
-        <input
+        <!-- <input
           v-else
           type="search"
+          placeholder="Search..."
           :value="hits"
           @input="refine($event.currentTarget.value)"
-        />
+        /> -->
         <span :hidden="!isSearchStalled">Loading...</span>
         <ais-voice-search :search-as-you-speak="false" />
       </div>
@@ -25,9 +27,12 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "SearchBox",
-  props: ["hits"],
+  methods: {
+    ...mapActions("HeaderModule", ["svgClick"]),
+  },
 };
 </script>
 
