@@ -2,29 +2,31 @@
   <header class="header">
     <img :src="headerUp" alt="" class="headerUp" />
     <div class="header-wrapper">
-      <img :src="logo" alt="logo" class="logo" @click="logoFunction" />
-      <ul>
-        <li @click="catOneFunction(), deletePersonna()">
-          CAT ONE
-        </li>
-        <li @click="catTwoFunction()">
-          CAT TWO
-        </li>
-        <li class="design">
-          <FontAwesomeIcon icon="{faPalette}" />
-          <span>DESIGN YOUR OWN</span>
-        </li>
-        <li>PRESCRIPTION</li>
-        <li>OUR ICONS</li>
-        <li class="promo">PROMO</li>
-        <li>
-          <SelectPersona
-            @selectedPersonna="selectedPersonna"
-            setSelectedOption="{setSelectedOption}"
-          />
-        </li>
-      </ul>
-      <div class="search-wrapper" @click="svgClick()">
+      <div class="list-img-wrapper">
+        <img :src="logo" alt="logo" class="logo" @click="logoFunction" />
+        <ul>
+          <li @click="catOneFunction(), deletePersonna()">
+            CAT ONE
+          </li>
+          <li @click="catTwoFunction()">
+            CAT TWO
+          </li>
+          <li class="design">
+            CAT 3
+          </li>
+          <li>CAT 4</li>
+          <li>CAT 5</li>
+          <li>CAT 6</li>
+          <li class="promo">CAT 7</li>
+          <li>
+            <SelectPersona
+              @selectedPersonna="selectedPersonna"
+              setSelectedOption="{setSelectedOption}"
+            />
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="search-wrapper" @click="svgClick()">
         <svg
           viewBox="0 0 897 897"
           fill="none"
@@ -42,7 +44,8 @@
         <p class="search-placeholder">
           Search ...
         </p>
-      </div>
+      </div> -->
+      <searchBox class="search-wrapper" />
     </div>
   </header>
 </template>
@@ -51,6 +54,7 @@
 // Import the assets
 import headerUp from "../assets/images/headerUp.png";
 import logo from "../assets/images/logo.jpeg";
+import searchBox from "../components/SearchBox";
 import { mapActions } from "vuex";
 
 // Import the components
@@ -58,6 +62,7 @@ import SelectPersona from "./Persona";
 export default {
   components: {
     SelectPersona,
+    searchBox,
   },
   data() {
     return {
@@ -84,7 +89,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
 
 .headerUp {
@@ -97,6 +102,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .list-img-wrapper {
+    display: flex;
+    align-items: center;
+  }
 
   ul {
     display: flex;
@@ -142,16 +152,21 @@ export default {
   }
 
   .logo {
-    width: 10%;
+    width: 18%;
     cursor: pointer;
   }
 
   .search-wrapper {
-    border-left: 1px solid $third-color;
-    width: 10%;
+    width: 40%;
     display: flex;
     align-items: center;
     cursor: pointer;
+    .ais-SearchBox {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .search-placeholder {
       color: $main-color;
       font-weight: 200;

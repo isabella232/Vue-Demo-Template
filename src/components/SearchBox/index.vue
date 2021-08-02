@@ -8,6 +8,7 @@
         <input
           v-if="hits === ''"
           type="search"
+          placeholder="Search..."
           :value="currentRefinement"
           @input="refine($event.currentTarget.value)"
         />
