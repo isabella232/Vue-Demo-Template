@@ -6,7 +6,8 @@
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getCatOne && !getCatTwo" />
-      <CatOne v-if="getCatOne"/>
+      <CatOne v-if="getCatOne" />
+      <CatTwo v-if="getCatTwo" />
       <Modal v-if="getShowModal" />
     </ais-instant-search>
   </div>
@@ -16,7 +17,8 @@
 import Header from "./components/Header.vue";
 import HomePage from "@/components/HomePage";
 import Modal from "@/components/Modal";
-import CatOne from "@/components/HitsPage";
+import CatOne from "@/components/CatOne";
+import CatTwo from "@/components/CatTwo";
 import { mapGetters } from "vuex";
 import algoliasearch from "algoliasearch/lite";
 
@@ -26,6 +28,7 @@ export default {
     HomePage,
     Modal,
     CatOne,
+    CatTwo,
   },
   data() {
     return {
