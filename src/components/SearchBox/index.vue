@@ -9,8 +9,12 @@
           type="search"
           placeholder="Search..."
           :value="currentRefinement"
-          @input="refine($event.currentTarget.value)"
+          @input="
+            refine($event.currentTarget.value),
+              modifQuery($event.currentTarget.value)
+          "
           @click="svgClick()"
+          @keyup.enter="searchNewQuery()"
         />
         <!-- <input
           v-else
@@ -31,7 +35,11 @@ import { mapActions } from "vuex";
 export default {
   name: "SearchBox",
   methods: {
-    ...mapActions("HeaderModule", ["svgClick"]),
+    ...mapActions("HeaderModule", ["svgClick", "searchNewQuery"]),
+    ...mapActions("SearchModule", ["modifQuery"]),
+    sendQuery() {
+      console.log("ENTER");
+    },
   },
 };
 </script>

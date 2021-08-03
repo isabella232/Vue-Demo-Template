@@ -1,6 +1,5 @@
 <template>
   <div class="search-page">
-    <SearchBox class="search" />
     <div class="filterBtn" @click="showFiltersMethod()">
       <p>Navigation & Filters</p>
       <div>
@@ -52,7 +51,6 @@
 
 <script>
 import Filters from "@/components/Filters";
-import SearchBox from "@/components/SearchBox";
 import { mapGetters } from "vuex";
 export default {
   name: "catTwo",
@@ -63,7 +61,6 @@ export default {
   },
   components: {
     Filters,
-    SearchBox,
   },
   methods: {
     showFiltersMethod() {

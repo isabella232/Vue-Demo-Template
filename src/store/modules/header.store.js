@@ -34,12 +34,17 @@ const HeaderModule = {
     svgClick({ commit }) {
       commit("SVG_CLICK");
     },
+    searchNewQuery({ commit }) {
+      commit("SEARCH_NEW_QUERY");
+    },
   },
   mutations: {
     LOGO_FUNCTION(state) {
-      state.catOne = true;
+      state.catOne = false;
       state.searchVisible = false;
       state.catTwo = false;
+      state.showModal = false;
+      state.showFederatedSearch = false;
     },
     CAT_TWO_FUNCTION(state) {
       state.catOne = false;
@@ -60,6 +65,12 @@ const HeaderModule = {
       state.catTwo = false;
       state.showFederatedSearch = false;
       state.showModal = false;
+    },
+    SEARCH_NEW_QUERY(state) {
+      state.showFederatedSearch = !state.showFederatedSearch;
+      state.showModal = !state.showModal;
+      state.catTwo = false;
+      state.catOne = true;
     },
   },
 };
