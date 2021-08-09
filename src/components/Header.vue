@@ -3,7 +3,7 @@
     <img :src="headerUp" alt="" class="headerUp" />
     <div class="header-wrapper">
       <div class="list-img-wrapper">
-        <img :src="logo" alt="logo" class="logo" @click="logoFunction" />
+        <img :src="logo" alt="logo" class="logo" @click="logoFunction()" />
         <ul>
           <li @click="catOneFunction(), deletePersonna()">
             CAT ONE
