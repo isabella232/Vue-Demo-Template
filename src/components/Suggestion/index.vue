@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <ais-index index-name="rayban_merged_query_suggestions">
-        <ais-refinement-list attribute="title" searchable show-more>
+        <ais-refinement-list :limit="6" attribute="title" searchable show-more>
           <div slot-scope="{ items, isFromSearch, refine, createURL }">
             <ul>
               <li v-if="isFromSearch && !items.length">No results.</li>
@@ -45,9 +45,14 @@ export default {
   padding: 0 1.2em;
   width: 70%;
   .content {
-    border-right: 1px solid #f2f2f2;
+    border: none;
     height: 20%;
     margin: 2em 0;
+    li {
+      border: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
   }
 }
 </style>
