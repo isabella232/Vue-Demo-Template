@@ -2,7 +2,7 @@
   <div class="container-federated-search">
     <div class="federated-search">
       <div class="modal-content">
-        <Suggestion @suggestion="suggestionMethod" />
+        <Suggestion />
         <SearchPage :hits="hits" />
       </div>
       <ais-pagination />
@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     suggestionMethod(value) {
+      console.log("EMIT AU DESSUS", value);
       this.hits = value;
     },
   },
