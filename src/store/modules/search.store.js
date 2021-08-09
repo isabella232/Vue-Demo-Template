@@ -10,6 +10,7 @@ const SearchModule = {
   },
   actions: {
     modifQuery({ commit }, value) {
+      console.log("JE SUIS DANS ACTION");
       commit("MODIF_QUERY", value);
     },
   },
