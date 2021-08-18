@@ -179,7 +179,7 @@
           </transition>
           <div class="line"></div>
         </div>
-        <div class="filters-content">
+        <!-- <div class="filters-content">
           <div class="title">
             <h3>PRICE</h3>
             <p>-</p>
@@ -197,19 +197,19 @@
             </div>
           </ais-range-input>
           <div class="line"></div>
-        </div>
+        </div> -->
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-import VueSlider from "vue-slider-component";
+// import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 export default {
   name: "Filters",
   components: {
-    VueSlider,
+    // VueSlider,
   },
   props: ["showFilter"],
   data() {

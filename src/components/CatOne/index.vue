@@ -24,7 +24,12 @@
           />
         </div>
         <ais-hits>
-          <div class="hits-wrapper" slot="item" slot-scope="{ item }">
+          <div
+            @click="selectedProduct(item), svgClick()"
+            class="hits-wrapper"
+            slot="item"
+            slot-scope="{ item }"
+          >
             <div class="image-wrapper">
               <img :src="item.image_link" alt="" />
             </div>
@@ -41,7 +46,7 @@
 
 <script>
 import Filters from "@/components/Filters";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "catOne",
   data() {
@@ -67,6 +72,8 @@ export default {
         return "Neutral";
       }
     },
+    ...mapActions("SearchModule", ["selectedProduct"]),
+    ...mapActions("HeaderModule", ["svgClick"]),
   },
   computed: {
     ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
