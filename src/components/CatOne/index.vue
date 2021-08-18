@@ -1,12 +1,5 @@
 <template>
   <div class="search-page">
-    <div class="filterBtn" @click="showFiltersMethod()">
-      <p>Navigation & Filters</p>
-      <div>
-        <p v-if="!showFilters">-</p>
-        <p v-else>+</p>
-      </div>
-    </div>
     <div class="hits-page">
       <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">

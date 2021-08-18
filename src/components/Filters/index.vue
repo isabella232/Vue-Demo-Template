@@ -1,6 +1,13 @@
 <template>
   <transition name="fade">
     <div v-if="showFilter" class="filters">
+      <div class="filterBtn" @click="showFiltersMethod()">
+        <p>Navigation & Filters</p>
+        <div>
+          <p v-if="!showFilters">-</p>
+          <p v-else>+</p>
+        </div>
+      </div>
       <div>
         <div class="filters-content">
           <div class="title" @click="showShapeMethod()">
@@ -256,7 +263,7 @@ export default {
     justify-content: space-between;
 
     :nth-child(1) {
-      margin-right: 0.5rem;
+      /* margin-right: 0.5rem; */
     }
 
     p {
