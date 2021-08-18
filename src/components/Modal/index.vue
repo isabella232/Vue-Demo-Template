@@ -2,10 +2,11 @@
   <div class="container-federated-search">
     <div class="federated-search">
       <div class="modal-content">
-        <Suggestion />
-        <SearchPage :hits="hits" />
+        <Suggestion v-if="!getProductDetails"/>
+        <SearchPage v-if="!getProductDetails" :hits="hits" />
+        <ProductDetails v-if="getProductDetails"/>
       </div>
-      <ais-pagination />
+      <ais-pagination v-if="!getProductDetails"/>
     </div>
   </div>
 </template>
@@ -13,16 +14,23 @@
 <script>
 import SearchPage from "@/components/SearchPage";
 import Suggestion from "@/components/Suggestion";
+import ProductDetails from "@/components/ProductDetails";
+
+import { mapGetters } from "vuex";
 export default {
   name: "Modal",
   components: {
     SearchPage,
     Suggestion,
+    ProductDetails,
   },
   data() {
     return {
       hits: "",
     };
+  },
+  computed: {
+    ...mapGetters("SearchModule", ["getProductDetails"]),
   },
   methods: {
     suggestionMethod(value) {

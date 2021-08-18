@@ -6,7 +6,12 @@
       <ais-stats />
     </div>
     <ais-hits>
-      <div class="hits-wrapper" slot="item" slot-scope="{ item }">
+      <div
+        class="hits-wrapper"
+        slot="item"
+        slot-scope="{ item }"
+        @click="selectedProduct(item)"
+      >
         <div class="image-wrapper">
           <img :src="item.image_link" alt="" />
         </div>
@@ -19,12 +24,14 @@
 </template>
 <script>
 // import SearchBox from "@/components/SearchBox";
+import { mapActions } from "vuex";
 export default {
   name: "SearchPage",
   props: ["hits"],
   components: {
     // SearchBox,
   },
+  methods: { ...mapActions("SearchModule", ["selectedProduct"]) },
 };
 </script>
 
