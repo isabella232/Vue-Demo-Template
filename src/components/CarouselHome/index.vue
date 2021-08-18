@@ -2,15 +2,15 @@
   <div class="carousel-container">
     <h3>Our Iconic Aviator</h3>
     <ais-configure :hits-per-page.camel="7" ruleContexts="aviator" />
-    <HitsCarousel />
+    <HitsCarouselHome />
   </div>
 </template>
 
 <script>
-import HitsCarousel from "@/components/HitsCarousel";
+import HitsCarouselHome from "@/components/HitsCarouselHome";
 export default {
   components: {
-    HitsCarousel,
+    HitsCarouselHome,
   },
 };
 </script>

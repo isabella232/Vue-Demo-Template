@@ -17,6 +17,7 @@
         <img :src="pdp" alt="" />
       </div>
     </div>
+    <CarouselProducts />
   </div>
 </template>
 
@@ -24,7 +25,12 @@
 import { mapActions, mapGetters } from "vuex";
 import pdp from "@/assets/images/pdp.png";
 
+import CarouselProducts from "@/components/CarouselProducts";
+
 export default {
+  components: {
+    CarouselProducts,
+  },
   data() {
     return {
       pdp,

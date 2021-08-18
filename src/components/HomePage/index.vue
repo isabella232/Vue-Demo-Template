@@ -6,7 +6,7 @@
     <div>
       <video :src="rbVideo" autoPlay loop />
     </div>
-    <Carousel />
+    <CarouselHome />
     <div>
       <img :src="img1" alt="home" />
     </div>
@@ -33,7 +33,7 @@ import img2 from "@/assets/images/img2.png";
 import img3 from "@/assets/images/img3.png";
 import img4 from "@/assets/images/img4.png";
 import footer from "@/assets/images/footer.png";
-import Carousel from "@/components/Carousel";
+import CarouselHome from "@/components/CarouselHome";
 
 export default {
   data() {
@@ -48,7 +48,7 @@ export default {
     };
   },
   components: {
-    Carousel,
+    CarouselHome,
   },
 };
 </script>
