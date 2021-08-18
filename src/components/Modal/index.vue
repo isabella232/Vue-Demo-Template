@@ -5,6 +5,7 @@
         <p v-if="!getProductDetails" class="close-modal" @click="closeModal">
           X
         </p>
+        <ais-configure :hits-per-page.camel="7"/>
         <Suggestion v-if="!getProductDetails" />
         <SearchPage v-if="!getProductDetails" :hits="hits" />
         <ProductDetails v-if="getProductDetails" />

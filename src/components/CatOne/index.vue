@@ -23,21 +23,23 @@
             ]"
           />
         </div>
-        <ais-hits>
-          <div
-            @click="selectedProduct(item), svgClick()"
-            class="hits-wrapper"
-            slot="item"
-            slot-scope="{ item }"
-          >
-            <div class="image-wrapper">
-              <img :src="item.image_link" alt="" />
+        <transition name="fade">
+          <ais-hits>
+            <div
+              @click="selectedProduct(item), svgClick()"
+              class="hits-wrapper"
+              slot="item"
+              slot-scope="{ item }"
+            >
+              <div class="image-wrapper">
+                <img :src="item.image_link" alt="" />
+              </div>
+              <div class="infos">
+                <ais-highlight attribute="title" :hit="item" />
+              </div>
             </div>
-            <div class="infos">
-              <ais-highlight attribute="title" :hit="item" />
-            </div>
-          </div>
-        </ais-hits>
+          </ais-hits>
+        </transition>
         <ais-pagination />
       </div>
     </div>
@@ -111,6 +113,15 @@ export default {
     position: relative;
     text-transform: uppercase;
     justify-content: space-between;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-container">
     <h3>Our Iconic Aviator</h3>
-    <ais-configure :hits-per-page.camel="7" ruleContexts="aviator" />
+    <ais-configure :hits-per-page.camel="7" ruleContexts="aviator"/>
     <HitsCarouselHome />
   </div>
 </template>

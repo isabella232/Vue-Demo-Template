@@ -34,6 +34,7 @@ export default {
   methods: { ...mapActions("SearchModule", ["selectedProduct"]) },
 };
 </script>
+g
 
 <style lang="scss">
 @import "@/assets/scss/variables/variables.scss";

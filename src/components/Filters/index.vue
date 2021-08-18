@@ -33,6 +33,9 @@
                       class="button-filter"
                       :href="createURL(item)"
                       @click.prevent="refine(item.value)"
+                      :style="{
+                        border: item.isRefined ? '1px solid #1f1f24' : '',
+                      }"
                     >
                       <ais-highlight attribute="item" :hit="item" />
                     </a>
@@ -67,6 +70,9 @@
                       class="button-filter"
                       :href="createURL(item)"
                       @click.prevent="refine(item.value)"
+                      :style="{
+                        border: item.isRefined ? '1px solid #1f1f24' : '',
+                      }"
                     >
                       <ais-highlight attribute="item" :hit="item" />
                     </a>
@@ -101,6 +107,9 @@
                       class="button-filter"
                       :href="createURL(item)"
                       @click.prevent="refine(item.value)"
+                      :style="{
+                        border: item.isRefined ? '1px solid #1f1f24' : '',
+                      }"
                     >
                       <ais-highlight attribute="item" :hit="item" />
                     </a>
@@ -135,6 +144,9 @@
                       class="button-filter"
                       :href="createURL(item)"
                       @click.prevent="refine(item.value)"
+                      :style="{
+                        border: item.isRefined ? '1px solid #1f1f24' : '',
+                      }"
                     >
                       <ais-highlight attribute="item" :hit="item" />
                     </a>
@@ -169,6 +181,9 @@
                       class="button-filter"
                       :href="createURL(item)"
                       @click.prevent="refine(item.value)"
+                      :style="{
+                        border: item.isRefined ? '1px solid #1f1f24' : '',
+                      }"
                     >
                       <ais-highlight attribute="item" :hit="item" />
                     </a>

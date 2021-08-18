@@ -1,18 +1,19 @@
 <template>
   <div class="carousel-container">
     <h3>Recommandations</h3>
-    <ais-configure :hits-per-page.camel="7" />
-    <HitsCarouselHome />
-    <ais-configure :hits-per-page.camel="7" />
-    <HitsCarouselHome />
+    <HitsCarouselReco />
+    <h3>Bought together</h3>
+    <HitsCarouselBought />
   </div>
 </template>
 
 <script>
-import HitsCarouselHome from "@/components/HitsCarouselHome";
+import HitsCarouselReco from "@/components/HitsCarouselReco";
+import HitsCarouselBought from "@/components/HitsCarouselBought";
 export default {
   components: {
-    HitsCarouselHome,
+    HitsCarouselReco,
+    HitsCarouselBought,
   },
 };
 </script>
