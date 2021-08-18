@@ -2,11 +2,14 @@
   <div class="container-federated-search">
     <div class="federated-search">
       <div class="modal-content">
-        <Suggestion v-if="!getProductDetails"/>
+        <p v-if="!getProductDetails" class="close-modal" @click="closeModal">
+          X
+        </p>
+        <Suggestion v-if="!getProductDetails" />
         <SearchPage v-if="!getProductDetails" :hits="hits" />
-        <ProductDetails v-if="getProductDetails"/>
+        <ProductDetails v-if="getProductDetails" />
       </div>
-      <ais-pagination v-if="!getProductDetails"/>
+      <ais-pagination v-if="!getProductDetails" />
     </div>
   </div>
 </template>
@@ -16,7 +19,7 @@ import SearchPage from "@/components/SearchPage";
 import Suggestion from "@/components/Suggestion";
 import ProductDetails from "@/components/ProductDetails";
 
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Modal",
   components: {
@@ -37,6 +40,7 @@ export default {
       console.log("EMIT AU DESSUS", value);
       this.hits = value;
     },
+    ...mapActions("HeaderModule", ["closeModal"]),
   },
 };
 </script>
@@ -81,5 +85,12 @@ export default {
       color: white;
     }
   }
+}
+
+.close-modal {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer;
 }
 </style>

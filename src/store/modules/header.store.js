@@ -37,6 +37,9 @@ const HeaderModule = {
     searchNewQuery({ commit }) {
       commit("SEARCH_NEW_QUERY");
     },
+    closeModal({ commit }) {
+      commit("CLOSE_MODAL");
+    },
   },
   mutations: {
     LOGO_FUNCTION(state) {
@@ -71,6 +74,10 @@ const HeaderModule = {
       state.showModal = !state.showModal;
       state.catTwo = false;
       state.catOne = true;
+    },
+    CLOSE_MODAL(state) {
+      state.showFederatedSearch = false;
+      state.showModal = false;
     },
   },
 };
