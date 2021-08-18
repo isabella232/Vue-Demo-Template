@@ -1,6 +1,7 @@
 <template>
   <div class="carousel-container">
-    <ais-configure :hits-per-page.camel="8" />
+    <h3>Our Iconic Aviator</h3>
+    <ais-configure :hits-per-page.camel="7" ruleContexts="aviator" />
     <HitsCarousel />
   </div>
 </template>
@@ -14,4 +15,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.carousel-container {
+  width: 90%;
+  margin: 5rem auto;
+  h3 {
+    font-family: "Oswald", sans-serif;
+    color: #000;
+    font-size: 2rem;
+  }
+}
+</style>
